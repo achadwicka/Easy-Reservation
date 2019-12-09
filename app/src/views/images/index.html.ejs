@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="card">
+        <div class="image-form">
+            <h1>Seleccione imagen de perfil (.png o .jpg)</h1>
+
+            <form action="<%= submitImagePath %>" method="post" enctype='multipart/form-data'>
+            <div class="field">
+                <label for="file">Seleccionar nueva imagen: </label>
+                <input type="file" name="file" />
+            </div>
+            <input style="width: 180px;" type="submit" name="create" value="Cambiar Imagen" />
+            </form>
+
+        </div>
+    </div>
+</div>

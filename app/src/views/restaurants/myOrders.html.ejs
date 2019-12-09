@@ -1,0 +1,88 @@
+<div class="container">
+
+  <div class="show-title">
+    <h1>Ordenes</h1>
+  </div>
+          
+
+  <!--     
+    Formato de presentar  (4 por row).
+    class row
+      class box
+        class inside-box
+  -->
+  <div class="show-subtitle">
+      <i>Reservas </i>
+  </div>
+  <% if (waiting.length === 0) { %>
+    <p>No hay reservas para aceptar</p>
+  <% } else { 
+    for(u = 0; u < waiting.length; u++) { 
+      order = waiting[u];
+      if(u % 4 === 0) { %>
+        </div>
+        <div class="row">
+      <% } %>
+    <div class="box">
+      <div class="inside-box">
+          <%- users[order.id] %>
+          <form action="<% acceptPath(order) %>" method="POST" <% console.log('inForm: ' + order.id) %>>
+            <input type="hidden" name="accept" value="<%- true %>" />
+            <input type="hidden" name="order" value="<%- order.id %>" />
+            <input class="action-button" type="submit" value="Aceptar" >
+          </form>
+          <form action="<% acceptPath(order) %>" method="POST" <% console.log('inForm: ' + order.id) %>>
+            <input type="hidden" name="accept" value="<%- false %>" />
+            <input type="hidden" name="order" value="<%- order.id %>" />
+            <input class="action-button" type="submit" value="Cancelar" >
+          </form>
+      </div>
+    </div>
+    <% } %>
+  <% } %>
+
+  <div class="show-subtitle">
+      <i>Reservas Aceptadas </i>
+  </div>
+  <% if (accepted.length === 0) { %>
+    <p>No hay reservas aceptadas</p>
+  <% } else { 
+    for(u = 0; u < accepted.length; u++) { 
+      order = accepted[u];
+      if(u % 4 === 0) { %>
+        </div>
+        <div class="row">
+      <% } %>
+    <div class="box">
+      <div class="inside-box">
+          <%- users[order.id] %>
+          <form action="<% cancelPath(order) %>" method="POST">
+              <input type="hidden" name="order" value="<%- order.id %>" />
+              <input type="hidden" name="accept" value="<%- false %>" />
+              <input class="action-button" type="submit" value="Cancelar" >
+          </form>
+      </div>
+    </div>
+    <% } %>
+  <% } %>
+  
+  <div class="show-subtitle">
+      <i>Reservas canceladas </i>
+  </div>
+  <% if (canceled.length === 0) { %>
+    <p>No hay reservas canceladas</p>
+  <% } else { 
+    for(u = canceled.length -1; u >= 0 ; u--) { 
+      order = canceled[u];
+      if(u % 4 === 0) { %>
+        </div>
+        <div class="row">
+      <% } %>
+    <div class="box">
+      <div class="inside-box">
+        <%- users[order.id] %>
+      </div>
+    </div>
+    <% } %>
+  <% } %>
+</div> 

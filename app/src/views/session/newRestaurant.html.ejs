@@ -1,0 +1,33 @@
+<div class="newSession">
+  <div class="container">
+    <div class="sessionForm">
+      <% if (locals.notice) { %>
+        <div className="notice"><%= notice %></div>
+      <% } %>
+      <h1>Login Restaurant</h1>
+      <% if (locals.error) { %>
+        <div class="error">
+          <%= error %>
+        </div>
+      <% } %>
+      <form action="<%= createRestSessionPath %>" method="post">
+        <input type="hidden" name="_method" value="put" />
+        <div class="field">
+          <label for="nickname">nickname</label>
+          <input type="text" name="nickname" value="<%= locals.nickname %>" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" name="password" value="<%= locals.password %>" />
+        </div>
+        <div class="field">
+          <input type="submit" name="sign-in" value="Sign In" />
+        </div>
+        <div class="field">
+          <a href="<%- newSessionPath %>">User Log In</a>
+          <a href="<%- newRestaurantPath %>">New restaurant</a>
+        </div>
+      </form>
+      
+  </div>
+</div>

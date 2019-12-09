@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="page-title">
+    <h1>Tables</h1>
+  </div>
+
+  <div class="row-wrap-list">
+    <% if (!tableList.length) { %>
+      <p>No results </p>
+    <% } else { 
+      tableList.forEach(table => { %>
+        <div class="box">
+          <area class="image-box" href="<%- showTablePath(table) %>"/>
+
+          <div class="in-box-footer">
+            <a href="<%- showTablePath(table) %>"><%- table.capacity %></a>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+</div> 

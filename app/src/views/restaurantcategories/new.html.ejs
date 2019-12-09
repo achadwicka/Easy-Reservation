@@ -1,0 +1,26 @@
+<div class="container">
+    <% if (locals.errors) { %>
+        <div class="errors">
+            You need to fix the following errors:
+            <ul>
+            <% errors.forEach(error => { %>
+                <li><%= error.message %></li>
+            <% }); %>
+            </ul>
+        </div>
+    <% } %>
+    <form action="<%= submitCategoryPath %>" method="post">
+        <div class='scrollable-checkbox'>
+            <% categoriesList.forEach ((category) => { %>
+                <div class='list-type'>
+                    <input type="checkbox" name="categories" value="<%- category[0].id %>" <% if (category[1]){ %> checked <% } %>> <%- category[0].name %>
+                </div>
+                    <% }); %>
+        </div>
+        <div class='buttons-categories'>
+            <input type="submit" name="update" value="Update" >
+            <a href="<%- newCategoryPath %>">Can't find the category that describes you? </a>
+        </div>
+    </form>
+
+</div>

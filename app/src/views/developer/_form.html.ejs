@@ -1,0 +1,42 @@
+<div>
+        <% if (currentUser) { %>
+            <% if (locals.errors) { %>
+                <div class="errors">
+                    You need to fix the following errors:
+                    <ul>
+                    <% errors.forEach(error => { %>
+                        <li><%= error.message %></li>
+                    <% }); %>
+                    </ul>
+                </div>
+            <% } %>
+    
+    
+            <form action="<%= submitAppPath %>" method="post">
+                <% if (!app.isNewRecord) { %>
+                    <input type="hidden" name="_method" value="patch">    
+                <%} %>
+                <div class="column">
+                    <label for="name">Application's name: </label>
+                    <input type="text" name="name" value="<%= app.name %>">
+                    <hr>
+        
+                    <label for="description">Please enter a description for the App
+                        (this is only so you can recognize it easier later): </label>
+                    <textarea name="description" cols="30" rows="10" value="<%= app.description %>">
+                    </textarea>
+                    <hr>
+        
+                    <% if (app.isNewRecord) { %>
+                        <input type="submit" name="create" value="Create" />
+                    <% } else { %>
+                        <input type="submit" name="update" value="Update" />
+                    <% } %>
+                    <a class="delete-button" href="<%- cancelPath %>">Cancel</a>
+                </div>
+            </form>
+            
+        <% } else { %>
+            Please login to create an App.
+        <%} %>
+    </div>

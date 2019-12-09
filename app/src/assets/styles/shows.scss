@@ -1,0 +1,325 @@
+.row-show {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    // align-items: center;
+
+    width: 60%;
+    height: 60%;
+
+    margin-left: 10%;
+}
+
+.column {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    // align-items: center;
+
+    height: 100%;
+}
+
+.simple-box {
+    border: 1px solid #afafaf;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.simple-box:hover {
+    border: 1px solid #4f7ca7;
+    cursor: default;
+}
+
+.space-left-side {
+    margin-left: 10px;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-space-even {
+    justify-content: space-evenly;
+}
+
+.name {
+    margin-right: 50px;
+}
+
+.show-title {
+    position: relative;
+    color: #525a5c;
+    font-size: 1.5em;
+    // margin-top: 5%;
+    margin-left: 5%;
+    text-align: left;
+    width: 100%;
+}
+
+.show-subtitle {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    margin-bottom: 10px;
+}
+
+.action-button {
+    position: relative;
+    color: white;
+    font-size: 16px;
+
+    width: 130px;
+    height: 20px;
+
+    text-align: center;
+
+    padding: 14px;
+    // padding-top: 8px;
+    // padding-bottom: 10px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+    background-color: #348498;
+    border: 0px solid #eaeaea;
+    border-radius: 15px;
+}
+
+.action-button:hover {
+    background-color: #99c2cc;
+    border: 0px solid #eaeaea;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.edit-button {
+    position: relative;
+    color: rgb(56, 56, 56);
+    font-size: 16px;
+
+    width: 80px;
+    height: 20px;
+    
+    text-align: center;
+
+    padding: 28px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+
+    background-color: rgb(240, 240, 240);
+    border: 1px solid #c7c7c7;
+    border-radius: 0px;
+}
+
+.edit-button:hover {
+    color: white;
+    background-color: green;
+    border: 1px solid #eaeaea;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.delete-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-button {
+    position: relative;
+    color: rgb(63, 63, 63);
+    font-size: 16px;
+
+    width: 100px;
+    height: 30px;
+
+    text-align: center;
+
+    padding: 18px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    margin-right: 200px;
+    margin-bottom: 10px;
+
+    background-color: #f7f7f7;
+    border: 1px solid #c0c0c0;
+    border-radius: 15px;
+}
+
+.delete-button:hover {
+    color: white;
+    background-color: #cc2121;
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.position-relative {
+    position: relative;
+    // margin-left: 20px;
+}
+
+select {
+    border-radius: 7px;
+}
+
+input[type=date] {
+    border-radius: 5px;
+}
+
+input[type=text] {
+    border-radius: 5px;
+}
+
+input[type=time] {
+    border-radius: 5px;
+}
+
+input[type=number] {
+    border-radius: 5px;
+}
+
+textarea {
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    width: 100px;
+    height: 30px;
+    padding: 7px;
+}
+
+input[type=reset] {
+    width: 100px;
+    height: 30px;
+    padding: 7px;
+}
+
+.larger {
+    width: 170px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+}
+
+.new-comment-button {
+    position: relative;
+    color: rgb(56, 56, 56);
+    font-size: 16px;
+
+    width: 300px;
+    height: 30px;
+    
+    text-align: center;
+    margin:auto;
+
+    padding: 28px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+    margin-left: 18px;
+
+    background-color: rgb(240, 240, 240);
+    border: 1px solid #c7c7c7;
+    border-radius: 0px;
+}
+
+.new-comment-button:hover {
+    color: white;
+    background-color: green;
+    border: 1px solid #eaeaea;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.delete-button-review {
+    position: relative;
+    color: rgb(63, 63, 63);
+    font-size: 16px;
+
+    width: 100px;
+    height: 15px;
+
+    text-align: center;
+
+    padding: 18px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    margin-right: 50px;
+
+    background-color: #f7f7f7;
+    border: 1px solid #c0c0c0;
+    border-radius: 15px;
+}
+
+.delete-button-review:hover {
+    color: white;
+    background-color: #cc2121;
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.new-comment-button-md {
+    position: relative;
+    color: rgb(56, 56, 56);
+    font-size: 16px;
+
+    width: 280px;
+    height: 30px;
+    
+    text-align: center;
+    margin:auto;
+    margin-left: 400px;
+
+
+    padding: 28px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+
+    background-color: rgb(240, 240, 240);
+    border: 1px solid #c7c7c7;
+    border-radius: 0px;
+}
+
+.new-comment-button-md:hover {
+    color: white;
+    background-color: green;
+    border: 1px solid #eaeaea;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.rectangle {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-bottom: 7px;
+
+    border: 1px solid #bebebe;
+    border-radius: 8px;
+
+}
+
+.reservationdishnumber {
+    position: center;
+    height: 15px;
+    margin-top: 12px;
+
+    width: 40px;
+}
+

@@ -1,0 +1,39 @@
+<div class="newSession">
+  <div class="container">
+    <div class="sessionForm">
+      <h1> User Info</h1>
+      <form action="<%= submitUserPath %>" method="post">
+        <% if (!user.isNewRecord) { %>
+          <input type="hidden" name="_method" value="patch" />
+        <% } %>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" name="name" value="<%= user.name %>" />
+        </div>
+        <div class="field">
+          <label for="nickname">Nickname</label>
+          <input type="text" name="nickname" value="<%= user.nickname %>" />
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" name="email" value="<%= user.email %>" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" name="password" value="<%= user.password %>">
+        </div>
+        <div class="field">
+            <label for="birthday">Birthday (YY-MM-DD)</label>
+            <input type="date" name="birthday" value="<%= user.birthday %>">
+          </div>
+        <div class="field">
+          <% if (user.isNewRecord) { %>
+            <input type="submit" name="create" value="Create" />
+          <% } else { %>
+            <input type="submit" name="update" value="Update" />
+          <% } %>
+        </div>
+      </form>
+    </div>
+  </div> 
+</div>

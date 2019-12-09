@@ -1,0 +1,83 @@
+<div class='container'>
+
+    <div class="row-show main">
+        <div class="column name">
+            <div class="show-title">
+                <h1> <%- user.name %> </h1>
+            </div>
+            
+            <div class="show-subtitle">
+                <i><%- user.nickname %></i>
+            </div>
+        </div>
+
+        <% if (currentUser && user.id === currentUser.id) { %>
+          <div class="column">
+            <a class="action-button" href="<%- myReservationsPath %>">My Reservations</a>
+            <a class="edit-button" href="<%- editUserPath %>">Edit</a>
+          </div>
+        <% } %>
+    </div>
+
+    <hr>
+
+    <div class="row-show">
+      <div class="column">
+        <p>Personal Information:</p>
+        <p>Name: <%- user.name %></p>
+        <p>Nickname: <%- user.nickname %></p>
+        <p>Email: <%- user.email %></p>
+      </div>
+      <div class="column">
+        <img class="profile-image" src="<%- user.image %>">
+        <% if (currentUser && currentUser.id === user.id) { %>
+          <a class="edit-button" style="top:10px;width: 93px;" href="<%- updateImagePath %>">Change Image</a>
+        <% } %>
+      </div>
+    </div>
+
+    <% if (currentUser && currentUser.id === user.id) { %>
+      
+      <div class="favourites">
+        <div class="column">
+          <h2> My Favourites Restaurants</h2>
+
+          <div class="row-show">
+            <% favRestaurantList.forEach(fav => { %>
+              <a href="<%- showRestaurantPath(fav) %>"><%- fav.name %></a>
+              <p> </p>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+  
+        <div class="favourites">
+          <div class="column">
+            <h2> My Favourites Dishes</h2>
+
+            <div class="row-show">
+              <% favDishesList.forEach(fav => { %>
+                <a href="<%- showDishPath(fav) %>"><%- fav.name %></a>
+                <p> </p>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+  
+    <% } %>
+
+
+    <% if ((currentUser && currentUser.id === user.id) || currentUser && currentUser.admin) { %>
+      <div class="delete-button-container">
+        <div class="column">
+          <a class="edit-button" href="<%- editUserPath %>">Edit</a>
+          <form action="<%- deleteUserPath %>" method="POST">
+            <input type="hidden" name="_method" value="delete" />
+            <input class="delete-button" type="submit" value="Delete" />
+          </form>
+        </div>
+      </div>
+    <% } %>
+
+</div>
+

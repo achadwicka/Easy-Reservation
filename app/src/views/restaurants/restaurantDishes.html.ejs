@@ -1,0 +1,24 @@
+<div class="container">
+    <h1><%- restaurant.name %> Dishes:</h1>
+    <% if (currentRestaurant && (currentRestaurant.id === restaurant.id)) { %>
+        <a class="delete-button larger" href="<%- newDishPath %>">Add a Dish</a>
+    <% } %>
+    <div class="row-wrap-list">
+        <% if (dishesList.length === 0) { %>
+            <p>No dishes for now</p>
+        <% } else { 
+            dishesList.forEach(dish => {%>
+                <div class="box">
+                    <area class="image-box" href="<%- showDishPath(dish) %>">
+                    <%- dish.name %>,
+                    <%- symbol %> <%- dish.price %>
+                </div>
+            <% });
+            } %>
+
+    <div class="row">
+        <a class="edit-button" href="<%- backtoRestaurantPath %>">Back to Restaurant</a>
+    </div>
+
+    </div>
+</div>

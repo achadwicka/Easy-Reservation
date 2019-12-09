@@ -1,0 +1,65 @@
+<div>
+  <% if (locals.errors) { %>
+    <div class="errors">
+      You need to fix the following errors:
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.message %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+  <form action="<%= submitReservationPath %>" method="post">
+    <% if (!reservation.isNewRecord) { %>
+      <input type="hidden" name="_method" value="patch" />
+    <% } %>
+    <div class="row-show">
+        <div class="column">
+            <label for="day">Date </label>
+            <input type="date" name="day" value="<%= reservation.day %>" >
+        </div>
+
+        <div class="column">
+            <label for="day">Time </label>
+            <input type="time" name="hour" value="<%= reservation.hour %>" >
+        </div>
+
+        <div class="column">
+            <label for="peopleCount">How many people?</label>
+            <input type="number" name="peopleCount" min="1" step="1"
+            value="<%= reservation.peopleCount %>">
+        </div>
+
+        <div class="column">
+            <label for="comments">Leave a comment:</label>
+            <textarea name="comments" rows="5" cols="60"
+            value="<%= reservation.comments %>"
+            placeholder="Where do you want to sit? Tell us something you want.">
+            </textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row-show">    
+        <div class="column">
+            <label for="dishes">Choose your dishes:</label>
+            <% dishes.forEach((dish) => { %>
+                <div class="rectangle">
+                    <p><%- dish.name %></p>
+                    <input type="number" name="dishes[<%=dish.id%>]" min="0"
+                            class="reservationdishnumber" value="0">
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <div class="column">
+      <% if (reservation.isNewRecord) { %>
+        <input type="submit" name="create" value="Create" />
+      <% } else { %>
+        <input type="submit" name="update" value="Update" />
+      <% } %>
+      <a class="delete-button" href="<%- cancelPath %>">Cancel</a>
+    </div>
+  </form>
+</div>

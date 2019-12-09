@@ -1,0 +1,13 @@
+<!-- Aca no se por que no funciona leer las keys desde env, por eso las puse directo -->
+<script async defer src="http://maps.googleapis.com/maps/api/js?&key=" + env.googleKey></script>
+<body>
+    <div class="container">
+        <div style="position: relative; top: 15px; ">
+            <h2 style="text-align: center; top: 15px"> Restaurants Map </h2>
+        </div>
+        <div id="restaurantList"><% var restaurantList = list; %></div>
+        <div id="map">
+            
+        </div>
+    </div>
+</body>

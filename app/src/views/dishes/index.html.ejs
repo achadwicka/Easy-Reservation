@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="page-title">
+    <h1>Dishes</h1>
+  </div>
+
+  <div class="row-wrap-list">
+    <% if (!dishList.length) { %>
+      <p>No results </p>
+    <% } else { 
+      dishList.forEach(dish => { %>
+        <div class="box">
+          <area class="image-box" href="<%- showDishPath(dish) %>"/>
+
+          <div class="in-box-footer">
+            <a href="<%- showDishPath(dish) %>"><%- dish.name %></a>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+</div> 

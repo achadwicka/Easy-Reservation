@@ -1,0 +1,17 @@
+<div class='container'>
+    <h1> Review </h1>
+    <h4>Comment: <%- review.comment %></h4>
+    <a href="<%- showUserPath %>">View User</a>
+
+    <% if (currentUser && currentUser.admin) { %>
+        <div>
+          <form action="<%- deleteReviewPath %>" method="POST">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="Delete Review" />
+          </form>
+        </div>
+        <div>
+          <a href="<%- editReviewPath %>"> Edit Review</a>
+        </div>
+    <% } %>
+</div>

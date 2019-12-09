@@ -1,0 +1,150 @@
+<div class='container'>
+
+    <div class="row-show main">
+        <div class="column name">
+            <div class="show-title">
+                <h1> <%- restaurant.name %> </h1>
+            </div>
+            
+            <div class="show-subtitle">
+                <i><%- restaurant.nickname %></i>
+            </div>
+        </div>
+        
+        <div class="column align-center">
+            <% if (! currentRestaurant) { %>
+                <a class="action-button" href="<%- newReservationPath %>">Make a Reservation</a>
+                
+            <% } %>
+        </div>
+    </div>
+
+    
+    <hr>
+    
+    <div style="height: 200px;" class="row-show">
+        <div class="content">
+            <p>Open Hours: <%- restaurant.open_at %> - <%- restaurant.close_at %> </p>
+            <p>Score: 
+                <% if (restaurant.votes == 0) { %>
+                    Not determined
+                <% } else { %>
+                    <%- restaurant.score %>
+                <% } %>
+            </p>
+            <p>Votes: <%- restaurant.votes %></p>
+            <p>Address: <%- restaurant.address %></p>
+            <p>Phone: <%- restaurant.phone %></p>
+        </div>
+        <div class="content">
+            <img class="profile-image" style="position:relative;left:30px" src="<%- restaurant.image %>">
+            <% if (currentRestaurant && currentRestaurant.id === restaurant.id) { %>
+                <a class="edit-button" style="top:30px;right:125px;width: 93px;" href="<%- updateRestaurantImagePath %>">Change Image</a>
+            <% } %>
+        </div>
+        <div class="content">
+            <a class="edit-button" href="<%- viewDishesPath %>">View Dishes</a>
+        </div>
+    </div>
+    
+    <div class="row-show">
+        <div class="column flex-space-even">
+            
+            <% if (currentUser) {%>
+                <% if (votes.length === 0) { %>
+                    <div>
+                        <form action="<%= submitScorePath %>" method="post">
+                            <p>Give a vote: <input style="width: 100px;" type="number" name="scoreValue" min="0" max="5"></p>
+                            <p>
+                                <input class="action-button" type="submit" value="Place">
+                                <input class="edit-button" type="reset" value="Clear">
+                            </p>
+                        </form>
+                    </div>
+                <% } 
+                else { %>
+                    <div>
+                        <form action="<%= editScorePath(votes[0]) %>" method="post">
+                            <p>Change Vote: <input style="width: 100px;" type="number" name="scoreValue" min="0" max="5"></p>
+                            <p>
+                                <input class="action-button" type="submit" value="Place">
+                                <input class="edit-button" type="reset" value="Clear">
+                            </p>
+                        </form>
+                    </div>
+                <% } %>
+        
+                <div>
+                    <% if (!favouriteList.includes(restaurant.id)) { %>
+                        <a href="<%- addFavouriteRestaurantPath(currentUser) %>">Add to favourites!</a>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+
+        
+    </div>
+
+    <hr>
+
+    <div class="column">
+        <a> Restaurant Categories: </a>
+
+        <div class="row-show justify-start">
+            <% if (categoriesList.length !== 0) { 
+                categoriesList.forEach(category => { %>
+                <div class="space-left-side">
+                    <p class="simple-box"><%- category.name %></p>
+                </div>
+            
+            <% }); } else { %>
+            <div>
+                <a> This restaurant doesn't belong to any category </a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="delete-button-container">
+        
+        <% if ((currentUser && currentUser.admin) || (currentRestaurant && currentRestaurant.id === restaurant.id)) { %>
+            <% if (currentRestaurant && currentRestaurant.id === restaurant.id) { %>
+                <a class="edit-button" href="<%- addCategoryPath %>">Edit</a>
+            <% } %>
+            <form action="<%- deleteRestaurantPath %>" method="POST">
+                <input type="hidden" name="_method" value="delete" />
+                <input class="delete-button larger" type="submit" value="Eliminar" />
+            </form>
+        <% } %>
+    </div>
+
+    <hr>
+
+    <% if (currentUser) { %>
+        <div class="comments">
+            <h2 style="text-align: center;" class="centered"><%- restaurant.name %> Reviews</h2>
+            <div id="react-reviews"
+                data-text = "como"
+                data-encryptedrestaurant = "<%- encryptedrestaurantId %>"
+                data-encrypteduser = "<%- encrypteduserId %>" 
+                data-name = "<%- currentUser.name %>"
+                data-count = "<%- count %>"
+                >
+        
+            </div>    
+        </div>
+    <%} else { %>
+        <div class="comments">
+            <h2 style="text-align: center;" class="centered"><%- restaurant.name %> Reviews</h2>
+            <div id="react-reviews"
+                data-text = "como"
+                data-encryptedrestaurant = "<%- encryptedrestaurantId %>"
+                data-encrypteduser = "<%- currentUser %>" 
+                data-user = "<%- currentUser %>"
+                data-name = "" 
+                data-count = 0
+                >
+            </div>    
+        </div>
+    <% } %>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+    <% if (currentUser && app && currentUser.id === app.userId) { %>
+        <div class="page-title">
+            <%- app.name %>
+        </div>
+
+        <hr>
+
+        <p class="subtitle">
+            App description:
+        </p>
+        <p class="subcontent">
+            <%- app.description %>
+        </p>
+
+        <hr>
+
+        <p class="subtitle">Access Token: (This access token is private and must
+             not be disclosured. 
+            Anyone who has this token could access your account, see your data
+        and make reservations with your account.)</p>
+        <p class="access-token">
+            <%- app.access_token %>
+        </p>
+        <hr>
+        <p class="access-token">
+            Go to /api to see how to interact with the api and start using our data!
+        </p>
+
+        <div class="delete-button-container">
+            <div class="column">
+                <a class="edit-button" href="<%- editAppPath %>">Edit</a>
+                <form class="position-relative" action="<%= deleteAppPath %>" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input class="delete-button" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    <% } else { %>
+        Oops, it apears that you don't have access to this app. 
+        If you are not loged in please remember to do so or go back.
+    <% } %>
+</div>

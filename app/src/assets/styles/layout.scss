@@ -1,0 +1,251 @@
+// color 1: #0892A5
+// color 2: #06908F
+// color 3: #0CA4A5
+// color 4: #DBB68F
+// color 5: #BB7E5D
+
+// color 1: #d2fafb
+// color 1: #6bc5d2
+// color 1: #105e62
+
+// color 1: #5bd1d7
+// color 1: #348498
+// color 1: #004d61
+
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#home-container {
+  position: absolute;
+  width: 94%;
+  height: 93%;
+  top: 0%;
+  left: 3%;
+  padding: 0%;
+  margin: 0px;
+  border: 0px;
+}
+
+#home {
+  position: absolute;
+  padding-top: 1%;
+  margin: 0px;
+  border: 0px;
+  top: 0%;
+  left: 0px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  width:100%;
+  height: 100%;
+  color: rgb(105, 79, 79);
+
+  // background-image: url(../images/back.jpg); 
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: 100% 100%;
+}
+
+.titleSearchBar {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+// .container h1 {
+//   text-align: center;
+//   position: relative;
+//   border: 0px;
+//   margin: 0px;
+//   top: 10px;
+// }
+
+#logo {
+  // display: inline-block;
+  position: relative;
+  width: 100%;
+  top: 0px;
+}
+
+
+#logo a {
+  float: left;
+  width: 20%;
+  height: 300px;
+  margin: 0;
+}
+
+#logo b {
+  position: relative;
+  color: #348498;
+  right: 3%;
+  top: 0%;
+  // float: left;
+  width: 80%;
+  height: 300px;
+  margin: 0;
+  font-size: 3em;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+   'Lucida Sans', Arial, sans-serif;
+}
+
+.search {
+  position: relative;
+  width: 70%;
+  left: 20%;
+  right: 10%;
+  top: 0%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchBar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search-field {
+  padding: 10px;
+  border-style: solid;
+  // border-width: 10px;
+  border-color: rgb(190, 190, 190);
+  border-radius: 25px;
+  outline: none;
+}
+
+.browse-option {
+  // position: relative;
+  // left: 10%;
+  // margin-left: 20px;
+}
+
+.navBar ul {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: 'Courier New', Courier, monospace;
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#348498;
+  z-index: 10000;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #99c2cc;
+  border: 0px solid #eaeaea;
+  border-radius: 15px;
+}
+
+#login-button {
+  background-color: #348498;
+  margin-right: 10px;
+}
+
+#login-button:hover {
+  background-color: #99c2cc;
+  border: 0px solid #eaeaea;
+  border-radius: 15px;
+}
+
+#logout-button {
+  color: white;
+  font-size: 16px;
+
+  padding: 18px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  margin-right: 10px;
+
+  background-color: #348498;
+  border: 0px solid #eaeaea;
+  border-radius: 15px;
+}
+
+#logout-button:hover {
+  background-color: #99c2cc;
+  border: 0px solid #eaeaea;
+  border-radius: 15px;
+}
+
+.card {
+  text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+.home-ipt{
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  height: 20px;
+  width: 500px;
+  border:1px solid #eaeaea;
+  outline:none;
+}
+.home-ipt:hover{
+  border-color: #979797 #afafaf #afafaf #afafaf;
+}
+
+.home-ipt:focus{
+  border-color:#4d90fe;
+}
+
+.home-btn {
+  border-radius: 2px;
+  background: #f2f2f2;
+  border: 1px solid #afafaf;
+  border-radius: 5px;
+  color: #757575;
+  cursor: default;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100px;
+  padding: 0 16px;
+  height:36px;
+}
+
+.home-btn:hover {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  background: #348498;
+  border: 1px solid #c6c6c6;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  color: white;
+  cursor: pointer;
+}
+
+#selectCurrency{
+  float: right;
+  position: relative;
+  font-family: Arial;
+  width: 70px;
+  height: 100%;
+  top: 5px;
+}

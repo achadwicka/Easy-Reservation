@@ -1,0 +1,16 @@
+<div class='container'>
+    <h1> Table Info. </h1>
+    <p>Capacity: <%- table.capacity %></p>
+    
+    <% if (currentUser && currentUser.admin) { %>
+        <div>
+          <form action="<%- deleteTablePath %>" method="POST">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="Delete Table" />
+          </form>
+        </div>
+        <div>
+          <a href="<%- editTablePath %>"> Edit Table</a>
+        </div>
+    <% } %>
+</div>

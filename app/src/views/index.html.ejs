@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+</head>
+
+<body>
+  <div id="home-container">
+
+    <div id="home">
+
+      <div id="logo">
+        <a><img src="<%= assetPath('waiter.png') %>" alt="Logo" /></a>
+        <b><h1> Easy-Reservation</h1></b>
+      </div> 
+      
+      <div class="search">
+        <div class="searchBar">
+          <form action="/restaurants/search">
+            <input class="home-ipt search-field"
+                  type="text" name="term" 
+                  placeholder="Search for a restaurant" />
+
+            <input class="home-ipt home-btn" type="submit" value="Search">
+          </form>
+        </div>
+
+        <a class="browse-option" href="/restaurants">Or browse</a>
+      </div>
+      
+    </div>
+  </div>
+</body>
+
+
+</html>
+
+

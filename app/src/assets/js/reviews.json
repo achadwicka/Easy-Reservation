@@ -1,0 +1,34 @@
+{
+    "reviews":[
+    {
+        "comment": "Esta muy bueno",
+        "userName": "Alberto",
+        "date": "22th of May"
+    },
+    {
+        "comment": "Me llego frio",
+        "userName": "Sergio",
+        "date": "11th of June"
+    },
+    {
+        "comment": "Falta buena musica",
+        "userName": "Pedro",
+        "date": "1st of September"
+    },
+    {
+        "comment": "Bieen, 5 estrellas",
+        "userName": "Joaquin",
+        "date": "8th of December"
+    },
+    {
+        "comment": "Nada especial",
+        "userName": "Enrique",
+        "date": "11th of July"
+    },
+    {
+        "comment": "Pesima atención",
+        "userName": "Vicente",
+        "date": "29th of September"
+    }
+    ]
+}

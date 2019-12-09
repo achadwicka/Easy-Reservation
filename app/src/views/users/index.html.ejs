@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div class="page-title">
+    <h1>Users</h1>
+  </div>
+
+  <hr>
+
+  <div class="row-wrap-list">
+    <% if (!usersList.length) { %>
+      <p>No results </p>
+    <% } else { 
+      usersList.forEach(user => { 
+        let image = user.image; %>
+        <div class="box">
+          <area class="image-box" style="background-image:url('<%- image %>');" href="<%- showUserPath(user) %>"/>
+
+          <div class="in-box-footer">
+            <a href="<%- showUserPath(user) %>"><%- user.name %></a>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+</div> 

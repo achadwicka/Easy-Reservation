@@ -1,0 +1,76 @@
+<div class='container'>
+
+  <% 
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ]; 
+  
+  const months = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  let text;
+  %>
+
+  <div class="row-show main">
+      <div class="column name">
+          <div class="show-title">
+              <h1> <%- restaurant.name %> </h1>
+          </div>
+          
+          <div class="show-subtitle">
+              <i><%- restaurant.nickname %></i>
+          </div>
+      </div>
+  </div>
+
+  
+  <hr>
+
+  <div class="row-show">
+    <div class="column">
+      <p>Table for: <%- reservation.peopleCount %></p>
+
+      <% const res = reservation;
+      text = days[(res.day.getDay()+1)%7].concat(" ", (res.day.getDate()+1).toString(), ", ")
+      text = text.concat(months[res.day.getMonth()], ", ", res.day.getYear()+1900) %>
+
+      <p>Date: <%- text %></p>
+      <p>Time: <%- res.hour.toString() %></p>
+
+      <p>Comments: <%- res.comments %></p>
+
+      <h4>Dishes:</h4>
+      <% dishes.forEach((dish) => { %>
+        <div class="rectangle">
+          <p><%- dish.name %></p>
+          <p>x<%- dish.amount %></p>
+        </div>
+      <% }) %>
+    </div>
+
+    <% if (currentUser && (currentUser.id === user.id || currentUser.admin)) { %>
+      <div class="column">
+        <a class="edit-button" href="<%- editReservationPath %>">Edit</a>
+
+        <form class="position-relative" action="<%- deleteReservationPath %>" method="POST">
+          <input type="hidden" name="_method" value="delete" />
+          <input class="delete-button" type="submit" value="Delete" />
+        </form>
+        
+        <a class="action-button" href="<%- showUserPath %>">Your Profile</a>
+        <a class="action-button" href="<%- showRestaurantPath %>">Restaurant details</a>
+      </div>
+    <% } %>
+  </div>
+
+</div>

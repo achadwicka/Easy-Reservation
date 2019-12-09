@@ -1,0 +1,44 @@
+<div class='container'>
+
+  <div class="row-show main">
+      <div class="column name">
+          <div class="show-title">
+              <h1> <%- dish.name %> </h1>
+          </div>
+          
+          <div class="show-subtitle">
+              <i>Price: <%- symbol %> <%- dish.price %></i>
+          </div>
+      </div>
+
+      <div class="column">
+          <% if ((currentUser && currentUser.admin) || 
+                (currentRestaurant && currentRestaurant.id == dish.restaurantId)) { %>
+          <div class="button-container">
+            <a class="edit-button" href="<%- editDishPath %>"> Edit Dish</a>
+          </div>
+        <% } %>
+        
+      </div>
+      <div class="button-container">
+        <% if (currentUser && !favouriteList.includes(dish.id)) { %>
+          <a class="edit-button" href="<%- addFavouriteDishPath(currentUser) %>">Add to favourites!</a>
+        <% } %>
+      </div>
+  </div>
+
+  <hr>
+
+  <p>Description: <%- dish.description %></p>
+
+  <% if ((currentUser && currentUser.admin) || 
+  (currentRestaurant && currentRestaurant.id == dish.restaurantId)) { %>
+  <div class="delete-button-container">
+      <form action="<%- deleteDishPath %>" method="POST">
+        <input type="hidden" name="_method" value="delete" />
+        <input class="delete-button" type="submit" value="Delete Dish" />
+      </form>
+    </div>
+  <% } %>
+
+</div>

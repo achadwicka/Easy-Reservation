@@ -1,0 +1,38 @@
+<div class="container">
+    <% if (currentUser) { %>
+        <div class="row-show">
+            <div class="page-title">
+                <h2>
+                    Developer's dashboard
+                </h2>
+            </div>
+
+            <a class="action-button" href="<%- newAppPath %>">New App</a>
+        </div>
+        <hr>
+
+        <% if (apps.length) { %>
+            <div class="flex-table-container">
+                <div class="page-title">Your Apps</div>
+
+                <% apps.forEach((app) => { %>
+                    <hr>
+                    <div class="flex-table">
+                        <div class="flex-table-main-item cols2">
+                            <a class="just-text" href="<%- showAppPath(app) %>"><%- app.name %></a>
+                        </div>
+                        <div class="flex-table-item cols2">
+                            <p><%- app.description %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            
+        <% } else { %>
+            You have no apps.
+        <% }%>
+    <% }  else { %>
+        You must be loged in to see the developer's dashboard. Please 
+        <a href="<%- newSessionPath %>">Log In</a>
+    <% }%>
+</div>

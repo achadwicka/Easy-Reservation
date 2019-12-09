@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="page-title">
+    <h1>Reviews</h1>
+  </div>
+  <div class="row-wrap-list">
+    <% if (!reviewsList.length) { %>
+      <p>No results </p>
+    <% } else { 
+      reviewsList.forEach(review => { %>
+        <div class="box">
+          <area class="image-box" href="<%- showReviewPath(review) %>"/>
+
+          <div class="in-box-footer">
+            <a href="<%- showReviewPath(review) %>"><%- review.score %></a>
+            <%- review.comment %>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+</div> 

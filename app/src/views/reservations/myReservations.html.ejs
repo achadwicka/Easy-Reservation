@@ -1,0 +1,49 @@
+<div class="container">
+
+  <%
+  const days = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ]; 
+  
+  const months = [
+    "Jan", "Feb", "Mar",
+    "Apr", "May", "Jun", "Jul",
+    "Aug", "Sep", "Oct",
+    "Nov", "Dec"
+  ];
+
+  let text;
+  %>
+
+  <div class="page-title">
+    <h1>My Reservations</h1>
+  </div>
+
+  <hr>
+  
+  <div class="row-wrap-list">
+    <% if (!reservations.length) { %>
+      <p>No results </p>
+    <% } else { 
+      reservations.forEach(res => { %>
+        <div class="box">
+          <area class="image-box" href="<%- showReservationPath(res) %>"/>
+          
+          <% text = days[(res.day.getDay()+1)%7].concat(" ", (res.day.getDate()+1).toString(), ", ")
+          text = text.concat(months[res.day.getMonth()], ": ", res.hour.toString()) %>
+
+          <div class="in-box-footer">
+            <a href="<%- showReservationPath(res) %>"><%- text %></a>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>    
+
+</div> 

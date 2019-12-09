@@ -1,0 +1,58 @@
+<div>
+    <% if (locals.errors) { %>
+      <div class="errors">
+        You need to fix the following errors:
+        <ul>
+          <% errors.forEach(error => { %>
+            <li><%= error.message %></li>
+          <% }); %>
+        </ul>
+      </div>
+    <% } %>
+    <form action="<%= submitRestaurantPath %>" method="post">
+      <% if (!restaurant.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+      <% } %>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" value="<%= restaurant.name %>" />
+      </div>
+      <div>
+        <label for="nickname">Nickname</label>
+        <input type="text" name="nickname" value="<%= restaurant.nickname %>" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" value="<%= restaurant.password %>" />
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input type="text" name="address" value="<%= restaurant.address %>" />
+      </div>
+      <div>
+        <label for="commune">Commune</label>
+        <input type="text" name="commune" value="<%= restaurant.commune %>" />
+      </div>
+      <div>
+        <label for="open_at">Opens at</label>
+        <input type="time" name="open_at" value="<%= restaurant.open_at %>">
+      </div>
+      <div>
+        <label for="close_at">Closes at</label>
+        <input type="time" name="close_at" value="<%= restaurant.close_at %>">
+      </div>
+      <div>
+        <label for="phone">Phone Number</label>
+        <textarea type="tel" name="phone"><%= restaurant.phone %></textarea>
+      </div>
+      <div>
+        <% if (restaurant.isNewRecord) { %>
+          <input type="submit" name="create" value="Create" />
+        <% } else { %>
+          <input type="submit" name="update" value="Update" />
+        <% } %>
+      </div>
+
+    </form>
+  </div>
+  
